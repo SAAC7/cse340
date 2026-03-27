@@ -1,0 +1,9 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { %>
+  <h1>Error en el servidor</h1>
+<% } %>
+
+<div class="error-message">
+  <%- message %>
+</div>
