@@ -1,6 +1,13 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
+const money = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 
+const miles = new Intl.NumberFormat('en-US')
+
+;
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
@@ -45,8 +52,8 @@ Util.buildClassificationGrid = async function(data){
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
-      grid += '<span>$' 
-      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+      grid += '<span>' 
+      + money.format(vehicle.inv_price) + '</span>'
       grid += '</div>'
       grid += '</li>'
     })
@@ -65,10 +72,11 @@ Util.buildVehicleDetailGrid = async function(data) {
   display += `<img src="${data.inv_image}" alt="${data.inv_make} ${data.inv_model}">`
   display += '<div id="vehicle-details">'
   display += `<h2>${data.inv_make} ${data.inv_model} Details</h2>`
-  display += `<p><strong>Price:</strong> $${new Intl.NumberFormat('en-US').format(data.inv_price)}</p>`
+  display += `<p><strong>Price:</strong> ${money.format(data.inv_price)}</p>`
   display += `<p><strong>Description:</strong> ${data.inv_description}</p>`
+  display += `<p><strong>Year:</strong> ${data.inv_year}</p>`
   display += `<p><strong>Color:</strong> ${data.inv_color}</p>`
-  display += `<p><strong>Miles:</strong> ${new Intl.NumberFormat('en-US').format(data.inv_miles)}</p>`
+  display += `<p><strong>Miles:</strong> ${miles.format(data.inv_miles)}</p>`
   display += '</div></div>'
   return display
 }
