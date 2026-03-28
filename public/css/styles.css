@@ -144,3 +144,48 @@ header {
   color: #333;
   font-size: 16px;
 }
+/* week 3*/
+#inv-display{
+  display: grid;
+  gap: 20px;
+  padding: 10px;
+  grid-template-columns: 1fr; 
+
+  li{
+    list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+
+    a{
+      text-decoration: none;
+      color: #000;
+      &:hover{
+        color: var(--color-secundario);
+      }
+    }
+  }
+}
+
+#vehicle-detail-display {
+  display: flex;
+  flex-direction: column; /* Móvil primero */
+  gap: 20px;
+  
+
+  img {
+    border-radius: 10px
+  }
+}
+
+
+
+@media (min-width: 600px) {
+  #vehicle-detail-display {
+    flex-direction: row; /* Lado a lado en pantallas grandes */
+  }
+  #inv-display{
+    grid-template-columns: 1fr 1fr 1fr; 
+  }
+}
