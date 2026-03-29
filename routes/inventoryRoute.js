@@ -11,9 +11,11 @@ router.get("/type/:classificationId", utilities.handleErrors(invController.build
 //route to buidl vehicle detail
 router.get("/detail/:inventoryId" ,utilities.handleErrors(invController.buildByInvId));
 
-
 // Route to error
 router.get("/trigger-error", utilities.handleErrors(invController.triggerError));
+
+// admin panel
+
 
 
 module.exports = router;

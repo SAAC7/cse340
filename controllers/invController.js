@@ -45,4 +45,8 @@ invCont.triggerError = async function (req, res, next) {
 };
 
 
+// admin pannel 
+
+
+
 module.exports = invCont
