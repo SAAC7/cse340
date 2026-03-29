@@ -1,6 +1,5 @@
 /******* Change Box Model ***************/
 :root {
-  /* --color-principal: #17a2b8; */
   --color-principal: #0D5C68;
   --color-secundario: #005f87;
   --color-texto: #333;
@@ -12,77 +11,60 @@
 *:after {
   box-sizing: border-box;
 }
-h1, h2{
-  margin-top:0;
+
+h1,
+h2 {
+  margin-top: 0;
 }
-.info-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+
+img {
+  max-width: 100%;
+  height: auto;
 }
-.upgrade-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+
+/* ===== LAYOUT ===== */
+
+body {
+  background-image: url("/images/site/checkerboard.jpg");
+  background-repeat: repeat;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.upgrade-card{
-  background: var(--color-principal);
+
+#wrapper {
+  background-color: white;
+  max-width: 1000px;
+  margin: 20px auto;
+  border: 4px solid var(--color-principal);
+  border-radius: 10px;
   padding: 20px;
-  text-align: center;
-  border: 1px solid #333;
 }
 
-.upgrade-card img{
-  width: 80px;
+/* ===== HEADER ===== */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  flex-wrap: wrap;
 }
 
-.upgrade-card a{
-  display:block;
-  margin-top:10px;
-  color: var(--color-texto-2);
+.siteName a {
+  font-size: 32px;
   font-weight: bold;
   text-decoration: none;
-}
-.hero{
-  position: relative;
+  color: #333;
 }
 
-.hero img{
-  width: 100%;  
+#tools a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
 }
 
-img{
-  max-width:100%;
-  height:auto;
-}
-.hero-text{
-  position:absolute;
-  left:20px;
-  top:20px;
-  color:var(--color-secundario);
-  
-}
-.hero button{
-  background:var(--color-principal);
-  border:none;
-  padding:10px 20px;
-  font-weight:bold;
-}
-@media (max-width: 768px){
+/* ===== NAV ===== */
 
-.info-grid{
-  grid-template-columns: 1fr;
-}
-
-.reviews{
-  order:1;
-}
-
-.upgrades{
-  order:2;
-}
-
-}
 nav {
   background-color: #2f2f3f;
   margin: 10px 0 20px 0;
@@ -96,62 +78,89 @@ nav ul {
   justify-content: space-around;
 }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
-#wrapper {
-  background-color: white;
-  max-width: 1000px;
-  margin: 20px auto;
-  border: 4px solid var(--color-principal);
-  border-radius: 10px;
+
+/* ===== HERO ===== */
+
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+}
+
+.hero-text {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: var(--color-secundario);
+}
+
+.hero button {
+  background: var(--color-principal);
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/* ===== CTA ===== */
+
+.cta-button {
+  display: inline-block;
+  background: var(--color-principal);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== HOME GRIDS ===== */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.upgrade-card {
+  background: var(--color-principal);
   padding: 20px;
-}
-body {
-  background-image: url("/images/site/checkerboard.jpg");
-  background-repeat: repeat;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border: 1px solid #333;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  flex-wrap:wrap;
+.upgrade-card img {
+  width: 80px;
 }
 
-.siteName a {
-  font-size: 32px;
+.upgrade-card a {
+  display: block;
+  margin-top: 10px;
+  color: var(--color-texto-2);
   font-weight: bold;
   text-decoration: none;
-  color: #333;
-}
-.cta-button{
-  display:inline-block;
-  background:var(--color-principal);
-  color:white;
-  padding:10px 20px;
-  text-decoration:none;
-  font-weight:bold;
 }
 
-#tools a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-}
-/* week 3*/
-#inv-display{
+/* ===== INVENTORY LIST ===== */
+
+#inv-display {
   display: grid;
   gap: 20px;
   padding: 10px;
-  grid-template-columns: 1fr; 
+  grid-template-columns: 1fr;
 
-  li{
+  li {
     border: 1px solid #ddd;
     border-radius: 1rem;
     overflow: hidden;
@@ -163,60 +172,90 @@ header {
     justify-content: space-between;
     padding: 0.5rem;
     align-items: center;
-  
-  &:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
 
-  a{
-    text-decoration: none;
-    color: #000;
-    &:hover{
-      color: var(--color-secundario);
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      width: 100%;
+      text-decoration: none;
+      color: #000;
+
+      &:hover {
+        color: var(--color-secundario);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+      }
+    }
+
+    .namePrice {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      a {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 12px;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      span {
+        margin: 10px 0;
+      }
     }
   }
-  }
 
-
-
-  img{
-    width: auto;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
-  }
-
-  h2{
+  h2 {
     font-size: 1.2rem;
     margin: 10px 0;
   }
 
-
-  span{
+  span {
     font-weight: bold;
     color: var(--color-principal);
     font-size: 1.1rem;
   }
 }
 
+/* ===== VEHICLE DETAIL ===== */
+
 #vehicle-detail-display {
   display: flex;
-  flex-direction: column; /* Stacked en móvil - Criterio 2 */
+  flex-direction: column;
   gap: 30px;
-  margin-top: 20px; 
+  margin-top: 20px;
 
   img {
-  width: 100%;
-  height: auto;
-  max-width: 500px; /* Evita que la imagen sea gigante en tablets */
-  margin: 0 auto;
-  border: 1px solid #ddd;
-  border-radius: 1rem;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #vehicle-details {
+    p {
+      strong {
+        color: var(--color-principal);
+      }
+    }
   }
 }
-
 
 .vehicle-info {
   padding: 10px;
@@ -227,50 +266,14 @@ header {
   font-size: 1.8rem;
 }
 
-
 .price-tag {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #d00; /* Color que resalte */
+  color: #d00;
   margin: 10px 0;
 }
 
-
-@media (min-width: 768px) {
-  #vehicle-detail-display {
-    flex-direction: row; /* Lado a lado - Criterio 2 */
-    align-items: flex-start;
-  }
-  
-  #vehicle-detail-display img {
-    flex: 1; /* La imagen toma la mitad */
-  }
-
-  .vehicle-info {
-    flex: 1; /* El texto toma la otra mitad */
-  }
-}
-
-/* --- RESPONSIVIDAD (Punto Clave de la Rúbrica) --- */
-
-/* Tablets: 2 columnas */
-@media (min-width: 500px) {
-  #inv-display {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Escritorio: 3 columnas (Criterio 2: Multi-column layout) */
-@media (min-width: 800px) {
-  #inv-display {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-
-
-/* css for the login page */
-/* ===== LOGIN FORM ===== */
+/* ===== FORMS ===== */
 
 form {
   max-width: 400px;
@@ -278,7 +281,7 @@ form {
   padding: 1.5rem;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 form label {
@@ -303,6 +306,41 @@ form input:focus {
   box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
 }
 
+form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+form textarea:focus {
+  border-color: #0D5C68;
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+form select:focus {
+  border-color: #0D5C68;
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
 form button {
   width: 100%;
   margin-top: 1.5rem;
@@ -320,20 +358,39 @@ form button:hover {
   background-color: #005f87;
 }
 
+form small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* Formulario más ancho para inventario */
+form.inventory-form {
+  max-width: 650px;
+}
+
+/* Layout de 2 columnas para campos cortos */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
 /* ===== REGISTER LINK ===== */
 
-form + p {
+form+p {
   text-align: center;
   margin-top: 1rem;
 }
 
-form + p a {
+form+p a {
   color: #0D5C68;
   font-weight: bold;
   text-decoration: none;
 }
 
-form + p a:hover {
+form+p a:hover {
   text-decoration: underline;
 }
 
@@ -364,14 +421,6 @@ form + p a:hover {
   color: #155724;
 }
 
-/* css extra para el register page */
-form small {
-  display: block;
-  margin-top: 0.5rem;
-  color: #555;
-  font-size: 0.85rem;
-}
-
 /* ===== VALIDATION STYLES ===== */
 
 input:required:invalid,
@@ -385,66 +434,112 @@ input:required:valid {
   background-color: #eafaf1;
 }
 
-/* Password rules */
 .password-rules {
   font-size: 0.85rem;
   color: #555;
   margin: 0.5rem 0;
 }
 
-/* css for the inventory management page  */
-/* ===== ADD INVENTORY FORM ===== */
+/* ===== MEDIA QUERIES ===== */
 
-form textarea {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  min-height: 100px;
-  resize: vertical;
-  font-family: inherit;
-}
-
-form textarea:focus {
-  border-color: #0D5C68;
-  outline: none;
-  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
-}
-
-/* Select del classification list */
-form select {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-form select:focus {
-  border-color: #0D5C68;
-  outline: none;
-  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
-}
-
-/* Formulario más ancho para inventario (tiene más campos) */
-form.inventory-form {
-  max-width: 650px;
-}
-
-/* Layout de 2 columnas para campos cortos */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 20px;
-}
-
+/* Móvil */
 @media (max-width: 500px) {
   .form-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews {
+    order: 1;
+  }
+
+  .upgrades {
+    order: 2;
+  }
+}
+
+/* Tablets: 2 columnas en inventory list */
+@media (min-width: 500px) {
+  #inv-display {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablets: vehicle detail lado a lado */
+@media (min-width: 768px) {
+  #vehicle-detail-display {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  #vehicle-detail-display img {
+    width: 50%;
+    flex-shrink: 0;
+  }
+
+  .vehicle-info {
+    flex: 1;
+  }
+}
+
+/* Escritorio: 3 columnas en inventory list */
+@media (min-width: 800px) {
+  #inv-display {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ===== INVENTORY MANAGEMENT PAGE ===== */
+
+.management-hero {
+  border-left: 5px solid var(--color-principal);
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.management-hero h1 {
+  font-size: 2rem;
+  color: var(--color-principal);
+  letter-spacing: -0.5px;
+}
+
+.management-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.management-actions a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-principal);
+  color: #fff;
+  border: 2px solid var(--color-principal);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-principal);
+  border: 2px solid var(--color-principal);
+}
+
+.management-actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 92, 104, 0.25);
 }

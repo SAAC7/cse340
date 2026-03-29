@@ -1,8 +1,15 @@
-<h1>Inventory Management</h1>
-
-<% if (notice) { %>
-  <p><%= notice %></p>
+<div class="management-hero">
+  <h1>Inventory Management</h1>
+<% if (notice && notice.length) { %>
+  <p class="notice"><%= notice %></p>
 <% } %>
+</div>
 
-<a href="/inv/add-classification">Add New Classification</a>
-<a href="/inv/add-inventory">Add New Inventory Item</a>
+<div class="management-actions">
+  <a href="/inv/add-classification" class="btn-secondary">
+    + Add Classification
+  </a>
+  <a href="/inv/add-inventory" class="btn-primary">
+    + Add Inventory Item
+  </a>
+</div>
