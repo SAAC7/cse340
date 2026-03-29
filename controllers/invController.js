@@ -46,7 +46,44 @@ invCont.triggerError = async function (req, res, next) {
 
 
 // admin pannel 
+invCont.buildManagement = async function (req, res) {
+  let nav = await utilities.getNav()
 
+  res.render("inventory/management", {
+    title: "Inventory Management",
+    nav,
+    notice: req.flash("notice")
+  })
+}
+
+invCont.buildAddClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+
+  res.render("inventory/add-classification", {
+    title: "Add Classification",
+    nav,
+    errors: null
+  })
+}
+
+invCont.addClassification = async function (req, res) {
+  let nav = await utilities.getNav()
+  const { classification_name } = req.body
+
+  const result = await invModel.addClassification(classification_name)
+
+  if (result) {
+    req.flash("notice", "Classification added successfully.")
+    res.redirect("/inv/")
+  } else {
+    req.flash("notice", "Failed to add classification.")
+    res.render("inventory/add-classification", {
+      title: "Add Classification",
+      nav,
+      errors: []
+    })
+  }
+}
 
 
 module.exports = invCont
