@@ -391,3 +391,60 @@ input:required:valid {
   color: #555;
   margin: 0.5rem 0;
 }
+
+/* css for the inventory management page  */
+/* ===== ADD INVENTORY FORM ===== */
+
+form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+form textarea:focus {
+  border-color: #0D5C68;
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+/* Select del classification list */
+form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+form select:focus {
+  border-color: #0D5C68;
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+/* Formulario más ancho para inventario (tiene más campos) */
+form.inventory-form {
+  max-width: 650px;
+}
+
+/* Layout de 2 columnas para campos cortos */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+@media (max-width: 500px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -85,5 +85,53 @@ invCont.addClassification = async function (req, res) {
   }
 }
 
+invCont.buildAddInventory = async function (req, res) {
+  let nav = await utilities.getNav()
+  let classificationList = await utilities.buildClassificationList()
+
+  res.render("inventory/add-inventory", {
+    title: "Add Inventory",
+    nav,
+    inv_make: "",
+    inv_model: "",
+    inv_year: "",
+    inv_description: "",
+    inv_image: "",
+    inv_thumbnail: "",
+    inv_price: "",
+    inv_miles: "",
+    inv_color: "",
+    classification_id: "",
+    classificationList,
+    errors: null
+  })
+}
+
+invCont.addInventory = async function (req, res) {
+  let nav = await utilities.getNav()
+
+  try {
+    const result = await invModel.addInventory(req.body)
+    if (result) {
+      req.flash("notice", "Inventory item added successfully.")
+      return res.redirect("/inv/")
+    } else {
+      let classificationList = await utilities.buildClassificationList(req.body.classification_id)
+      req.flash("notice", "Sorry, the insert failed.")
+      return res.render("inventory/add-inventory", {
+        title: "Add Inventory",
+        nav,
+        classificationList,
+        errors: [],
+        ...req.body
+      })
+    }
+  } catch (error) {
+    console.error("addInventory error:", error)
+    req.flash("notice", "Server error, please try again.")
+    return res.redirect("/inv/add-inventory")
+  }
+}
+
 
 module.exports = invCont

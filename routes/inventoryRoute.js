@@ -20,12 +20,23 @@ router.get("/", utilities.handleErrors(invController.buildManagement));
 
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
 
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+
+
 router.post(
   "/add-classification",
   validate.classificationRules(),
   validate.checkClassificationData,
   invController.addClassification
 )
+router.post(
+  "/add-inventory",
+  validate.inventoryRules(),
+  validate.checkInventoryData,
+  invController.addInventory
+)
+
+
 
 
 

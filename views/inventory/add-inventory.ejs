@@ -1,0 +1,44 @@
+<h1>Add Inventory</h1>
+
+<% if (errors) { %>
+<ul>
+  <% errors.forEach(error => { %>
+    <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form action="/inv/add-inventory" method="post">
+
+  <label>Make</label>
+  <input type="text" name="inv_make" value="<%= inv_make || '' %>" required>
+
+  <label>Model</label>
+  <input type="text" name="inv_model" value="<%= inv_model || '' %>" required>
+
+  <label>Year</label>
+  <input type="number" name="inv_year" value="<%= inv_year || '' %>" required>
+
+  <label>Description</label>
+  <textarea name="inv_description"><%= inv_description || '' %></textarea>
+
+  <label>Image</label>
+  <input type="text" name="inv_image" value="<%= inv_image || '' %>">
+
+  <label>Thumbnail</label>
+  <input type="text" name="inv_thumbnail" value="<%= inv_thumbnail || '' %>">
+
+  <label>Price</label>
+  <input type="number" name="inv_price" value="<%= inv_price || '' %>" required>
+
+  <label>Miles</label>
+  <input type="number" name="inv_miles" value="<%= inv_miles || '' %>">
+
+  <label>Color</label>
+  <input type="text" name="inv_color" value="<%= inv_color || '' %>">
+
+  <label>Classification</label>
+  <%- classificationList %>
+
+  <button type="submit">Add Inventory</button>
+</form>
