@@ -34,7 +34,8 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Middleware
  * ************************/
- app.use(session({
+
+app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
     pool,
@@ -57,6 +58,9 @@ app.use(function(req, res, next){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
+
 
 
 /* ***********************

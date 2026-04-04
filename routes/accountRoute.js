@@ -26,6 +26,8 @@ router.post(
   utilities.handleErrors(accountController.accountLogin)
 )
 
+// route for the main account 
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
 
 
 

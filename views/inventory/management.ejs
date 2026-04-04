@@ -1,8 +1,9 @@
 <div class="management-hero">
   <h1>Inventory Management</h1>
-<% if (notice && notice.length) { %>
-  <p class="notice"><%= notice %></p>
-<% } %>
+
+  <% if (notice && notice.length) { %>
+    <p class="notice"><%= notice %></p>
+  <% } %>
 </div>
 
 <div class="management-actions">
@@ -13,3 +14,17 @@
     + Add Inventory Item
   </a>
 </div>
+
+<!-- 🔽 AGREGA TODO ESTO -->
+
+<h2>Administrar Inventario</h2>
+
+<p>Seleccione una clasificación para ver los vehículos.</p>
+
+<%- classificationSelect %>
+
+<table id="inventoryDisplay"></table>
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+<script src="/js/inventory.js"></script>
