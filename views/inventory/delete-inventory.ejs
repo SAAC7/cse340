@@ -1,0 +1,53 @@
+<h1>Add Inventory</h1>
+
+<% if (errors) { %>
+    <ul>
+        <% errors.forEach(error=> { %>
+            <li>
+                <%= error.msg %>
+            </li>
+            <% }) %>
+    </ul>
+    <% } %>
+
+        <form action="/inv/delete" method="post" id="deleteForm">
+            <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+                <% } %>>
+
+
+                    <label>Make</label>
+                    <input type="text" name="inv_make" value="<%= inv_make || '' %>" readonly>
+
+                    <label>Model</label>
+                    <input type="text" name="inv_model" value="<%= inv_model || '' %>" readonly>
+
+                    <label>Year</label>
+                    <input type="number" name="inv_year" value="<%= inv_year || '' %>" readonly>
+
+                    <label>Description</label>
+                    <textarea name="inv_description" readonly><%= inv_description || '' %>"</textarea>
+
+                    <label>Image</label>
+                    <input type="text" name="inv_image" value="<%= inv_image || '' %>" readonly>
+
+                    <label>Thumbnail</label>
+                    <input type="text" name="inv_thumbnail" value="<%= inv_thumbnail || '' %>" readonly>
+
+                    <label>Price</label>
+                    <input type="number" name="inv_price" value="<%= inv_price || '' %>" readonly>
+
+                    <label>Miles</label>
+                    <input type="number" name="inv_miles" value="<%= inv_miles || '' %>" readonly>
+
+                    <label>Color</label>
+                    <input type="text" name="inv_color" value="<%= inv_color || '' %>" readonly>
+
+                    <label>Classification</label>
+                    <%- classificationList %>
+
+
+                        <button type="submit">Delete</button>
+
+        </form>
+<script type="module" src="../../js/inv-delete.js"></script>
+

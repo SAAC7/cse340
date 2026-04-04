@@ -32,6 +32,13 @@ router.get(
   utilities.handleErrors(invController.editInventoryView)
 )
 
+// Obtain the confirmation of delete view
+router.get(
+  "/delete/:inv_id",
+   utilities.handleErrors(invController.buildDeleteView)
+)
+
+
 router.post(
   "/add-classification",
   validate.classificationRules(),
@@ -46,6 +53,9 @@ router.post(
 )
 
 router.post("/update", invController.updateInventory)
+
+router.post("/delete", invController.deleteInventoryItem);
+
 
 
 
