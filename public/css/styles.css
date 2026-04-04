@@ -686,3 +686,59 @@ form button:disabled:hover {
   background-color: #ccc;
 }
 
+/* ===== ACCOUNT MANAGEMENT ===== */
+
+.account-box {
+  background: #f9fbfc;
+  border-left: 5px solid var(--color-principal);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.account-box h2 {
+  color: var(--color-principal);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.account-box h3 {
+  margin-top: 2rem;
+  color: #444;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.3rem;
+}
+
+/* LINKS COMO BOTONES (reutiliza tu estilo) */
+.account-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.account-links a {
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* botón principal */
+.account-links a.primary {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+/* botón secundario */
+.account-links a.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-principal);
+  color: var(--color-principal);
+}
+
+.account-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(13, 92, 104, 0.2);
+}

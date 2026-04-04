@@ -1,0 +1,62 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+
+<form action="/account/update" method="post" id="updateForm">
+  <input type="hidden" name="account_id" value="<%= account_id %>">
+
+  <label>First Name</label>
+  <input type="text" name="account_firstname" value="<%= account_firstname %>" required>
+
+  <label>Last Name</label>
+  <input type="text" name="account_lastname" value="<%= account_lastname %>" required>
+
+  <label for="account_email">Email</label>
+  <input 
+    type="email" 
+    name="account_email" 
+    id="account_email"
+    placeholder="Enter a valid email address"
+    value="<%= account_email %>"
+    required
+  >
+
+  <button type="submit" disabled>Update Account</button>
+</form>
+
+
+<h2>Change Password</h2>
+
+<form action="/account/update-password" method="post" id="passwordForm">
+  <input type="hidden" name="account_id" value="<%= account_id %>">
+
+<label for="new_password">New Password</label>
+<input 
+  type="password" 
+  name="new_password" 
+  id="new_password"
+  required
+  minlength="12"
+  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+>
+
+<label for="confirm_password">Confirm New Password</label>
+<input 
+  type="password" 
+  name="confirm_password" 
+  id="confirm_password"
+  required
+  minlength="12"
+  pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+>
+  <small>
+    Password must be at least 12 characters, include 1 capital letter,
+    1 number, and 1 special character.
+  </small>
+
+
+  <button type="submit">Update Password</button>
+</form>
+
+
+<script type="module" src="../../js/account-update.js"></script>

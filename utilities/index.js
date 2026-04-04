@@ -94,23 +94,25 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 * Middleware to check token validity
 **************************************** */
 Util.checkJWTToken = (req, res, next) => {
- if (req.cookies.jwt) {
-  jwt.verify(
-   req.cookies.jwt,
-   process.env.ACCESS_TOKEN_SECRET,
-   function (err, accountData) {
-    if (err) {
-     req.flash("Please log in")
-     res.clearCookie("jwt")
-     return res.redirect("/account/login")
-    }
-    res.locals.accountData = accountData
-    res.locals.loggedin = 1
+  res.locals.loggedin = false  // 👈 THIS LINE FIXES YOUR BUG
+
+  if (req.cookies.jwt) {
+    jwt.verify(
+      req.cookies.jwt,
+      process.env.ACCESS_TOKEN_SECRET,
+      function (err, accountData) {
+        if (err) {
+          res.clearCookie("jwt")
+          return next()
+        }
+        res.locals.accountData = accountData
+        res.locals.loggedin = true
+        next()
+      }
+    )
+  } else {
     next()
-   })
- } else {
-  next()
- }
+  }
 }
 
 Util.buildClassificationList = async function (classification_id = null) {
@@ -140,9 +142,26 @@ Util.buildClassificationList = async function (classification_id = null) {
   if (res.locals.loggedin) {
     next()
   } else {
-    req.flash("notice", "Please log in.")
+    req.flash("notice", "Please check your credentials and try again.")
     return res.redirect("/account/login")
   }
  }
+
+
+ /* ****************************************
+  *  Check Account Type
+  * ************************************ */
+ Util.checkEmployeeOrAdmin = (req, res, next) => {
+  const account = res.locals.accountData
+
+  if (account && (account.account_type === "Employee" || account.account_type === "Admin")) {
+    next()
+  } else {
+    req.flash("notice", "Please log in with proper credentials.")
+    return res.status(401).render("account/login", {
+      title: "Login"
+    })
+  }
+}
 
 module.exports = Util
