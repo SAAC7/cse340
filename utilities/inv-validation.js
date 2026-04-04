@@ -53,4 +53,22 @@ validate.checkInventoryData = async (req, res, next) => {
   next()
 }
 
+validate.checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    let classificationList = await utilities.buildClassificationList(req.body.classification_id)
+
+    return res.render("inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      classificationList,
+      errors: errors.array(),
+      ...req.body // 🔥 ESTO HACE EL FORM STICKY
+    })
+  }
+  next()
+}
+
 module.exports = validate

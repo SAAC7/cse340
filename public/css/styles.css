@@ -499,8 +499,11 @@ input:required:valid {
 
 .management-hero {
   border-left: 5px solid var(--color-principal);
-  padding: 0.5rem 0 0.5rem 1rem;
+  /* padding: 0.5rem 0 0.5rem 1rem; */
   margin-bottom: 2rem;
+  background: #f9fbfc;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 .management-hero h1 {
@@ -544,3 +547,142 @@ input:required:valid {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(13, 92, 104, 0.25);
 }
+
+/* Selector de clasificación */
+select {
+  max-width: 300px;
+  padding: 0.6rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+select:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* encabezados */
+#inventoryDisplay thead {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+#inventoryDisplay th {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* celdas */
+#inventoryDisplay td {
+  padding: 0.7rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* filas hover */
+#inventoryDisplay tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* zebra stripes */
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+
+
+/* ===== INVENTORY TABLE ===== */
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* HEADER */
+#inventoryDisplay thead {
+  background-color: var(--color-principal);
+  color: #fff;
+}
+
+#inventoryDisplay th {
+  padding: 0.8rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* ROWS */
+#inventoryDisplay td {
+  padding: 0.7rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Zebra */
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover */
+#inventoryDisplay tbody tr:hover {
+  background-color: #eef6f7;
+}
+
+/* ===== ACTION BUTTONS ===== */
+
+.btn-edit,
+.btn-delete {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+/* Edit */
+.btn-edit {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #217dbb;
+}
+
+/* Delete */
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+/* Botón deshabilitado */
+form button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+  opacity: 0.7;
+}
+
+/* Evita hover cuando está deshabilitado */
+form button:disabled:hover {
+  background-color: #ccc;
+}
+

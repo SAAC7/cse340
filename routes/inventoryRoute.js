@@ -27,6 +27,11 @@ router.get(
   utilities.handleErrors(invController.getInventoryJSON)
 )
 
+router.get(
+  "/edit/:inv_id",
+  utilities.handleErrors(invController.editInventoryView)
+)
+
 router.post(
   "/add-classification",
   validate.classificationRules(),
@@ -39,6 +44,8 @@ router.post(
   validate.checkInventoryData,
   invController.addInventory
 )
+
+router.post("/update", invController.updateInventory)
 
 
 
