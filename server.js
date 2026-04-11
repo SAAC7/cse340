@@ -15,6 +15,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute= require("./routes/accountRoute")
+const reviewRoute= require("./routes/reviewRoute")
 
 
 // Utilities and database
@@ -79,6 +80,8 @@ app.use("/inv", inventoryRoute)
 
 // Account routes
 app.use("/account", accountRoute)
+
+app.use("/review", reviewRoute)
 
 /* ***********************
  * Local Server Information

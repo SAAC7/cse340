@@ -94,25 +94,29 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 * Middleware to check token validity
 **************************************** */
 Util.checkJWTToken = (req, res, next) => {
-  res.locals.loggedin = false  // 👈 THIS LINE FIXES YOUR BUG
+  // valores por defecto (SIEMPRE existen)
+  res.locals.loggedin = false
+  res.locals.accountData = null
 
-  if (req.cookies.jwt) {
-    jwt.verify(
-      req.cookies.jwt,
-      process.env.ACCESS_TOKEN_SECRET,
-      function (err, accountData) {
-        if (err) {
-          res.clearCookie("jwt")
-          return next()
-        }
-        res.locals.accountData = accountData
-        res.locals.loggedin = true
-        next()
-      }
-    )
-  } else {
-    next()
+  try {
+    const token = req.cookies.jwt
+
+    if (!token) {
+      return next()
+    }
+
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+
+    // si todo bien
+    res.locals.loggedin = true
+    res.locals.accountData = decoded
+
+  } catch (error) {
+    // token inválido o expirado
+    res.clearCookie("jwt")
   }
+
+  next()
 }
 
 Util.buildClassificationList = async function (classification_id = null) {

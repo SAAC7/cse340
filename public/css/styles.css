@@ -598,6 +598,175 @@ select:focus {
   background-color: #fafafa;
 }
 
+/* ===== REVIEWS SECTION ===== */
+
+.reviews-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.reviews-section h2 {
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.review {
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-header strong {
+  color: var(--color-principal);
+}
+
+.review-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.review-text {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.delete-review-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.delete-review-btn:hover {
+  background-color: #c82333;
+}
+
+.add-review {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.add-review h3 {
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.add-review textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-review textarea:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+.add-review button {
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.add-review button:hover {
+  background-color: var(--color-secundario);
+}
+
+.add-review {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.add-review h3 {
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.add-review textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-review textarea:focus {
+  border-color: var(--color-principal);
+  outline: none;
+  box-shadow: 0 0 5px rgba(13, 92, 104, 0.3);
+}
+
+.add-review button {
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.add-review button:hover {
+  background-color: var(--color-secundario);
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 1rem;
+}
+
+.error-message ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.error-message li {
+  margin-bottom: 0.5rem;
+}
+
 
 
 /* ===== INVENTORY TABLE ===== */
